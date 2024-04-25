@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block title %}
+    Extract Audio
+{% endblock %}
+
+{% block main %}
+    <form action="/extract" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" type="text" name="link" placeholder="Enter youtube link">
+        </div>
+        <button class="btn btn-primary" type="submit">Extract audio</button>
+    </form>
+
+    {% if audio_file %}
+        <div class="container dl-block">
+            <h1>Your file is ready!</h1>
+            <a href="{{url_for('download')}}" class="btn btn-success">Download</a>
+        </div>
+    {% endif %}
+
+{% endblock %}
